@@ -1,0 +1,85 @@
+﻿@using TelRehberMVC.ViewModels.Home 
+@model HomePageViewModel
+@{
+    ViewBag.Title = "homepage";
+}
+
+    <div class="container-fluid">
+    
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Telefon Rehberi</h2>
+                <hr />
+            </div>
+            
+        </div>
+        <div class="row ">
+            <div class="col-md-4">
+
+                <div>
+                    @Html.ActionLink("Yeni Çalışan Ekle", "Yeni", "Kisi", null, new { @class = "btn btn-primary" })
+                    <br /><br />
+                </div>
+
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <h2>Çalışanlar</h2>
+
+                    </li>
+                </ul>
+
+
+
+                <ul class="list-group">
+                    @foreach (var kisiler in Model.Kisiler)
+                    {
+
+                        <li class="list-group-item ">
+                            <span class="glyphicon glyphicon-user"></span> <b>@(kisiler.Ad)</b>
+                        </li>
+
+
+                    }
+
+                </ul>
+            </div>
+            
+            
+            <div class="col-md-4">
+                <br /><br /><br/>
+                
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <h2>Telefonlar</h2>
+
+                    </li>
+                </ul>
+
+
+
+                <ul class="list-group">
+                    @foreach (var kisiler in Model.Kisiler)
+                    {
+
+                        <li class="list-group-item ">
+                            @(kisiler.Telefon)(<i>@(kisiler.Ad)</i>)
+                        </li>
+
+
+                    }
+
+                </ul>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
